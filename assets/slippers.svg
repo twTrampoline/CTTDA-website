@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+<rect width="1200" height="800" fill="#111"/>
+<rect x="40" y="40" width="1120" height="720" fill="none" stroke="#c9a45a" stroke-width="2"/>
+<circle cx="600" cy="290" r="100" fill="none" stroke="#c9a45a" stroke-width="3"/>
+<path d="M520 590c25-150 135-150 160 0M470 500h260M535 400l-75 80M665 400l75 80" fill="none" stroke="#c9a45a" stroke-width="12" stroke-linecap="round"/>
+<text x="600" y="660" text-anchor="middle" fill="#fff" font-family="Arial" font-size="48" font-weight="bold">SLIPPERS</text>
+<text x="600" y="705" text-anchor="middle" fill="#c9a45a" font-family="Arial" font-size="18" letter-spacing="5">OFFICIAL</text>
+</svg>

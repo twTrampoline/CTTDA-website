@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支持與資助｜CTTDA 中華台北彈翻床發展協會</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+
+    <script src="js/theme.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/donation.js"></script>
+
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="support" class="bg-obsidian-900 text-gray-100 font-sans selection:bg-gold-500 selection:text-black" x-data="{ 
+    ...donationForm(),
+    mobileMenu: false, 
+    activeModal: null,
+    giftModal: false,
+    selectedTier: '3000',
+    donationPreset: '1000',
+    customDonationAmount: '',
+    donationModal: false,
+    donationPurpose: '單筆支持',
+    modalDonationAmount: '1000',
+    donorLastFive: '',
+    bankAccountCopied: false,
+    copyDemoAccount() {
+        const account = '00000000000000000';
+        const fallback = () => {
+            const el = document.createElement('textarea');
+            el.value = account;
+            el.style.position = 'fixed';
+            el.style.opacity = '0';
+            document.body.appendChild(el);
+            el.select();
+            let done = false;
+            try { done = document.execCommand('copy'); } catch (err) { done = false; }
+            document.body.removeChild(el);
+            this.bankAccountCopied = done;
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(account).then(() => { this.bankAccountCopied = true; }).catch(fallback);
+        } else { fallback(); }
+    },
+    giftTarget: 'friend',
+    recipientName: '',
+    recipientAddress: '',
+    giftMessage: '',
+    cartCount: 0,
+    addToCart(item) {
+        this.cartCount++;
+        alert('已將 「' + item + '」 加入支持清單！');
+    }
+}">
+    <div class="bg-gradient-to-r from-gold-700 via-gold-500 to-gold-700 text-black text-xs md:text-sm font-medium py-2 px-4 text-center tracking-wide shadow-md">
+        <span class="inline-block animate-pulse mr-2"><i class="fa-solid fa-heart text-red-700"></i></span>
+        推廣彈翻床運動，讓更多人認識、參與並享受每一次起跳。
+    </div>
+    <header class="site-header" @resize.window="if (window.innerWidth >= 768) mobileMenu = false">
+ <div class="header-inner">
+  <a class="header-brand" href="index.html" aria-label="中華台北彈翻床發展協會首頁"><span class="header-wordmark">CTTDA</span><span class="header-name">中華台北彈翻床發展協會<small>推廣彈翻床運動 · TRAMPOLINE DEVELOPMENT</small></span></a>
+  <nav class="header-navigation" aria-label="主要導覽"><a class="header-nav-button" href="index.html#about">關於協會</a><a class="header-nav-button" href="index.html#stories">故事與選手</a><a class="header-nav-button" href="index.html#training">訓練體系</a><a class="header-nav-button" href="index.html#news">最新消息</a><a class="header-nav-button" href="index.html#join">加入協會</a></nav>
+  <div class="header-actions"><a class="header-button header-outline" href="store.html">官方商店</a><a class="header-button header-gold" href="support.html">支持協會 ↗</a></div>
+  <button type="button" class="header-menu" @click.stop="mobileMenu = !mobileMenu" :aria-expanded="mobileMenu" aria-controls="header-mobile" :aria-label="mobileMenu ? '關閉選單' : '開啟選單'" :class="{ 'is-open': mobileMenu }"><span class="header-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
+ </div>
+ <nav id="header-mobile" class="header-mobile" aria-label="手機版導覽" x-show="mobileMenu" x-cloak x-transition.opacity.duration.150ms @keydown.escape.window="mobileMenu = false">
+  <div class="header-mobile-panel" @click.outside="mobileMenu = false">
+    <div class="header-mobile-links">
+      <a href="index.html#about" @click="mobileMenu = false">關於協會</a>
+      <a href="index.html#stories" @click="mobileMenu = false">故事與選手</a>
+      <a href="index.html#training" @click="mobileMenu = false">訓練體系</a>
+      <a href="index.html#news" @click="mobileMenu = false">最新消息</a>
+      <a href="index.html#join" @click="mobileMenu = false">加入協會</a>
+    </div>
+    <div class="header-mobile-cta">
+      <a class="header-button header-outline" href="store.html" @click="mobileMenu = false">官方商店</a>
+      <a class="header-button header-gold" href="support.html" @click="mobileMenu = false">支持協會 ↗</a>
+    </div>
+  </div>
+ </nav>
+</header>
+    <section id="support" class="support-section">
+ <div class="support-container"><div class="support-intro"><span class="support-kicker">SUPPORT CTTDA</span><h1>一起支持彈翻床運動發展</h1><p>從全隊移地訓練、添置器材到籌設新館，選擇適合你的方式，<br class="hidden sm:inline">陪伴更多人認識彈翻床，讓選手持續成長。</p></div>
+ <div class="support-plans"><article class="support-plan">
+ <div class="support-plan-heading"><span class="support-plan-type">單次捐款</span><h3>單筆支持</h3></div>
+ <div class="support-plan-price"><span>NT$</span> <b x-text="donationPreset === 'custom' ? (Number(customDonationAmount) > 0 ? Number(customDonationAmount).toLocaleString('zh-TW') : '自訂') : Number(donationPreset).toLocaleString('zh-TW')">1,000</b></div>
+ <p class="support-plan-description">支持日常訓練與運動推廣；可選擇金額或自行填寫。</p>
+ <div class="support-plan-benefits">
+ <label class="support-amount-label" id="donationAmountLabel">選擇單次捐款金額</label>
+ <div class="support-amount-options" role="group" aria-label="選擇單次捐款金額">
+<button type="button" :aria-pressed="donationPreset === '500'" @click="donationPreset = '500'">NT$ 500</button>
+<button type="button" :aria-pressed="donationPreset === '1000'" @click="donationPreset = '1000'">NT$ 1,000</button>
+<button type="button" :aria-pressed="donationPreset === '2000'" @click="donationPreset = '2000'">NT$ 2,000</button>
+<button type="button" :aria-pressed="donationPreset === '3600'" @click="donationPreset = '3600'">NT$ 3,600</button>
+<button type="button" :aria-pressed="donationPreset === '5000'" @click="donationPreset = '5000'">NT$ 5,000</button>
+<button type="button" :aria-pressed="donationPreset === '10000'" @click="donationPreset = '10000'">NT$ 10,000</button>
+<button type="button" :aria-pressed="donationPreset === 'custom'" @click="donationPreset = 'custom'">自訂金額</button>
+ </div>
+ <div x-show="donationPreset === 'custom'" x-cloak class="mt-2"><label for="customDonationAmount" class="support-amount-label">自訂金額（新台幣）</label><input id="customDonationAmount" x-ref="customAmount" type="number" min="1" max="99999999" step="1" inputmode="numeric" x-model="customDonationAmount" class="support-amount-select" placeholder="請輸入金額，例如 800" /></div>
+ <h4 class="support-reward-title">感謝回饋</h4><ul><li>CTTDA 數位感謝狀</li><li>專屬彈翻床選手勵志明信片組（2 入）</li><li>官網芳名錄銘謝</li></ul></div>
+ <button type="button" class="support-plan-button" :disabled="donationPreset === 'custom' &amp;&amp; (!Number.isInteger(Number(customDonationAmount)) || Number(customDonationAmount) < 1 || Number(customDonationAmount) > 99999999)" @click="donationPurpose = '單筆支持'; modalDonationAmount = donationPreset === 'custom' ? customDonationAmount : donationPreset; donorLastFive = ''; bankAccountCopied = false; donationModal = true">查看銀行轉帳資料 <span aria-hidden="true">↗</span></button>
+</article><article class="support-plan support-plan-featured">
+ <div class="support-plan-heading"><span class="support-plan-type">每月捐款</span><h3>協會會員・每月支持</h3></div>
+ <div class="support-plan-price"><span>NT$</span> 1,200</div>
+ <p class="support-plan-description">先加入協會會員，再以每月捐款支持彈翻床推廣、選手訓練及賽事參與。</p>
+ <div class="support-plan-benefits"><h4>支持方式</h4><ul><li>申請加入協會會員</li><li>每月定額捐款支持</li><li>協助協會規劃訓練與參賽資源</li></ul></div>
+ <button type="button" class="support-plan-button bg-gold-metallic" @click="modalDonationAmount = '1200'; donationPurpose = '會員每月支持'; donorLastFive = ''; bankAccountCopied = false; donationModal = true">了解入會及每月支持<span aria-hidden="true">↗</span></button>
+</article><article class="support-plan">
+ <div class="support-plan-heading"><span class="support-plan-type">單次捐款</span><h3>賽事支持</h3></div>
+ <div class="support-plan-price"><span>NT$</span> 3,600</div>
+ <p class="support-plan-description">支持選手參與比賽、移地集訓及海外交流的相關準備。</p>
+ <div class="support-plan-benefits"><h4>感謝回饋</h4><ul><li>專屬高吸水提花運動毛巾</li><li>飛躍守＋紀念胸章組</li><li>賽事紀錄精裝電子相冊</li></ul></div>
+ <button type="button" class="support-plan-button" @click="modalDonationAmount = '3600'; donationPurpose = '賽事支持'; donorLastFive = ''; bankAccountCopied = false; donationModal = true">支持 NT$ 3,600<span aria-hidden="true">↗</span></button>
+</article><article class="support-plan">
+ <div class="support-plan-heading"><span class="support-plan-type">合作洽詢</span><h3>企業合作</h3></div>
+ <div class="support-plan-price support-cooperation-price">合作洽談</div>
+ <p class="support-plan-description">歡迎企業與團體洽談資源合作、裝備支持及賽事合作。</p>
+ <div class="support-plan-benefits"><h4>合作回饋</h4><ul><li>限量版 CTTDA 提花包</li><li>禮物全套大禮盒（含客製卡片）</li><li>年度全國錦標賽 VIP 貴賓席</li></ul></div>
+ <a href="index.html#contact" class="support-plan-button">聯絡我們洽談合作<span aria-hidden="true">↗</span></a>
+</article></div>
+ <p class="support-plan-note">單次捐款可選擇或自訂金額，並以銀行轉帳方式直接支持協會。現階段收款帳戶為測試資料，請勿實際匯款；方案回饋、入會資格與每月支持安排以協會確認及公告為準。企業合作請直接聯絡協會洽談。</p>
+ </div>
+</section>
+<section id="projects" class="support-projects"><div class="support-intro"><span class="support-kicker">SUPPORT OUR DEVELOPMENT</span><h2>你可以支持的三個方向</h2><p>支持整支隊伍，也支持彈翻床運動長遠發展。</p></div><div class="action-grid"><article id="project-training"><span class="support-kicker">PROJECT 01</span><h3>全隊移地訓練</h3><p>支持選手與教練整隊出發，累積集訓與交流經驗。</p><p class="project-needs">交通與住宿／訓練場地／教練帶隊</p><a class="header-button header-outline" href="#support">查看支持方式 ↗</a></article><article id="project-equipment"><span class="support-kicker">PROJECT 02</span><h3>添置與更新器材</h3><p>讓日常訓練有合適的器材及保護設施。</p><p class="project-needs">彈翻床／保護墊／輔助訓練器材</p><a class="header-button header-outline" href="#support">查看支持方式 ↗</a></article><article id="project-venue"><span class="support-kicker">PROJECT 03</span><h3>籌設新訓練館</h3><p>以挑高 8 米以上的空間為目標，規劃新的彈翻床訓練基地。</p><p class="project-needs">場地資訊／空間規劃／器材與保護設施配置</p><a class="header-button header-outline" href="#support">查看支持方式 ↗</a></article></div><p class="support-plan-note">以上為協會支持方向。各專案的預算、執行時間與資源用途待確認後公告；新館以挑高 8 米以上為目標，仍須依實際場地條件評估。</p></section>
+    <footer class="bg-obsidian-900 text-gray-400 pt-16 pb-12 border-t border-gold-500/30 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-gray-800">
+                <div class="col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-gold-metallic flex items-center justify-center font-serif font-bold text-black">C</div>
+                        <span class="font-bold text-white text-lg">CTTDA 中華台北彈翻床發展協會</span>
+                    </div>
+                    <p class="text-xs text-gray-500 max-w-sm leading-relaxed">
+                        Chinese Taipei Trampoline Development Association<br>
+                        致力於建立完整彈翻床訓練體系，培養具國際競爭力之選手。
+                    </p>
+                    <div class="flex space-x-4 text-gold-400 pt-2">
+                        <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook text-lg"></i></a>
+                        <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram text-lg"></i></a>
+                        <a href="#" class="hover:text-white"><i class="fa-brands fa-youtube text-lg"></i></a>
+                        <a href="mailto:tw.trampoline.association@gmail.com" aria-label="傳送電子郵件給協會" class="hover:text-white"><i class="fa-solid fa-envelope text-lg"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-xs tracking-wider uppercase">關於我們</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="index.html#about" class="hover:text-gold-400">協會簡介</a></li>
+                        <li><a href="index.html#about" class="hover:text-gold-400">發展理念</a></li>
+                        <li><a href="index.html#stories" class="hover:text-gold-400">選手感人故事</a></li>
+                        <li><a href="index.html#join" class="hover:text-gold-400">加入我們</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-xs tracking-wider uppercase">訓練與商店</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="index.html#training" class="hover:text-gold-400">訓練與選手培育</a></li>
+                        <li><a href="store.html#store" class="hover:text-gold-400">官方禮物商店</a></li>
+                        <li><a href="store.html#store" class="hover:text-gold-400">飛躍守 / 紀念品</a></li>
+                        <li><a href="support.html#support" class="hover:text-gold-400">捐款回饋機制</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-xs tracking-wider uppercase">支持與聯絡</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="support.html#support" class="hover:text-gold-400">我要捐款</a></li>
+                        <li><a href="store.html#store" class="hover:text-gold-400">前往商城選購禮物</a></li>
+                        <li><a href="index.html#contact" class="hover:text-gold-400">企業合作方案</a></li>
+                        <li><a href="index.html#contact" class="hover:text-gold-400">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
+                <div>&copy; 2026 Chinese Taipei Trampoline Development Association (CTTDA). All Rights Reserved.</div>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:underline">隱私權政策</a>
+                    <a href="#" class="hover:underline">捐款服務條款</a>
+                    <a href="#" class="hover:underline">財團法人與協會公開資訊</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div x-show="giftModal" x-transition class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" style="display: none;">
+        <div @click.away="giftModal = false" class="bg-obsidian-900 border border-gold-500/50 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]">
+            <button @click="giftModal = false" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-gold-metallic rounded-full flex items-center justify-center text-black text-xl font-bold mx-auto mb-3">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">支持意向｜尚未開放收款</h3>
+                <p class="text-xs text-gray-400 mt-1">此區為版面示意，尚未連接正式收款或資料送出系統。</p>
+            </div>
+            <form @submit.prevent="alert('目前網站尚未連接正式收款或資料送出系統，這次不會完成捐款。請先聯絡協會確認支持方式。');" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-bold text-gold-400 mb-2">1. 禮包收件人對象：</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="flex items-center gap-2 p-3 rounded-xl border border-gray-700 bg-obsidian-800 cursor-pointer hover:border-gold-500">
+                            <input type="radio" name="target" value="self" x-model="giftTarget" class="text-gold-500 focus:ring-gold-500">
+                            <span class="text-xs text-white">寄給我自己</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 rounded-xl border border-gold-500/50 bg-gold-500/10 cursor-pointer hover:border-gold-400">
+                            <input type="radio" name="target" value="friend" x-model="giftTarget" class="text-gold-500 focus:ring-gold-500">
+                            <span class="text-xs font-bold text-gold-300">🎁 贈送給親友/孩子</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">收件人姓名 / 稱呼</label>
+                        <input type="text" x-model="recipientName" placeholder="例如：林小明 先生/小姐" required class="w-full bg-obsidian-800 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:border-gold-500 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">寄送地址</label>
+                        <input type="text" x-model="recipientAddress" placeholder="請填寫完整地址以便寄送飛躍禮包" required class="w-full bg-obsidian-800 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:border-gold-500 focus:outline-none">
+                    </div>
+                    <div x-show="giftTarget === 'friend'">
+                        <label class="block text-xs text-gold-400 font-bold mb-1"><i class="fa-solid fa-pen-nib mr-1"></i> 代寫祝福卡片內容（免費）</label>
+                        <textarea x-model="giftMessage" rows="3" placeholder="例如：祝小明生日快樂！這份飛躍守代表堅持與勇敢，願你在新的一年也能像彈翻床選手一樣飛得又高又遠！" class="w-full bg-obsidian-800 border border-gold-500/40 rounded-xl p-3 text-xs text-white focus:border-gold-500 focus:outline-none"></textarea>
+                    </div>
+                </div>
+                <div class="pt-2">
+                    <label class="block text-xs text-gray-300 mb-2">付款方式</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" class="p-2 border border-gold-500 bg-gold-500/10 text-gold-300 rounded-lg text-xs font-bold text-center">尚未開通</button>
+                        <button type="button" class="p-2 border border-gray-700 bg-obsidian-800 text-gray-400 rounded-lg text-xs text-center hover:border-gray-500">ATM 轉帳</button>
+                        <button type="button" class="p-2 border border-gray-700 bg-obsidian-800 text-gray-400 rounded-lg text-xs text-center hover:border-gray-500">尚未開通</button>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-gold-metallic hover:bg-gold-400 text-black font-extrabold py-3.5 rounded-xl shadow-lg transition text-sm mt-4">
+                    目前尚未開放正式捐款 <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Direct bank transfer preview: demo account only, no payment is made on this page. -->
+    <div x-show="donationModal" x-cloak @keydown.escape.window="donationModal = false" class="donation-overlay" role="presentation">
+        <div class="donation-dialog donation-bank-dialog" role="dialog" aria-modal="true" aria-labelledby="donationDialogTitle" @click.outside="donationModal = false">
+            <button type="button" class="donation-close" @click="donationModal = false" aria-label="關閉轉帳資訊"><span aria-hidden="true">×</span></button>
+            <div class="donation-dialog-head">
+                <span class="support-kicker">DIRECT BANK TRANSFER</span>
+                <h2 id="donationDialogTitle">直接匯款支持協會</h2>
+                <p>不經第三方收款平台，銀行轉帳至協會戶口。</p>
+            </div>
+            <div class="donation-demo-warning" role="status"><i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i><span><strong>版面示範・尚未開放捐款</strong>　下方帳號為 0 組成的測試資料，請勿實際匯款。</span></div>
+            <div class="donation-selected-amount">
+                <div><span class="donation-small-label">捐款方案</span><strong x-text="donationPurpose">單筆支持</strong></div>
+                <div class="donation-amount-display"><span>捐款金額</span><strong x-text="'NT$ ' + Number(modalDonationAmount).toLocaleString('zh-TW')">NT$ 1,000</strong></div>
+            </div>
+            <div x-show="donationPurpose === '會員每月支持'" class="donation-membership-note">會員每月支持需先完成入會。本頁不會自動每月扣款，正式啟用後須自行每月轉帳；入會細節請先<a href="index.html#contact">聯絡協會</a>。</div>
+            <div class="donation-bank-card">
+                <div class="donation-card-title"><span><i class="fa-solid fa-building-columns" aria-hidden="true"></i> 協會銀行帳戶</span><span class="donation-demo-tag">DEMO</span></div>
+                <dl class="donation-bank-rows">
+                    <div><dt>收款銀行</dt><dd>示範銀行（非真實）</dd></div>
+                    <div><dt>銀行代碼</dt><dd>000（示範）</dd></div>
+                    <div><dt>戶名</dt><dd>中華台北彈翻床發展協會 <small>（請以正式銀行戶名為準）</small></dd></div>
+                    <div class="donation-account-row"><dt>匯款帳號 <small>（測試）</small></dt><dd><span class="donation-account-number">00000000000000000</span><button type="button" class="donation-copy-button" @click="copyDemoAccount()" :aria-label="bankAccountCopied ? '已複製測試帳號' : '複製測試帳號'"><i class="fa-regular" :class="bankAccountCopied ? 'fa-circle-check' : 'fa-copy'" aria-hidden="true"></i><span x-text="bankAccountCopied ? '已複製' : '複製'">複製</span></button></dd></div>
+                </dl>
+            </div>
+            <form class="donation-followup" @submit.prevent="submitDonation()">
+                <h3>完成轉帳後，通知協會核對</h3>
+                <p>提交後系統會通知協會核對轉帳。個人資料全部選填，不影響捐款；如希望收到禮物或感謝卡，可留下收件資料。實際寄送由協會安排。</p>
+                <label for="donorLastFive">轉出帳號末五碼 <span>（選填）</span></label>
+                <input id="donorLastFive" type="text" inputmode="numeric" maxlength="5" pattern="[0-9]{5}" placeholder="例如 12345" autocomplete="off" x-model="donorLastFive" />
+                <fieldset class="donor-fields"><legend>收件與聯絡資料（全部選填）</legend>
+                    <div><label for="donorName">姓名／收件人</label><input id="donorName" x-model="donorName" maxlength="80" autocomplete="name" placeholder="可留空，匿名支持" /></div>
+                    <div><label for="donorEmail">電子郵件</label><input id="donorEmail" type="email" x-model="donorEmail" maxlength="160" autocomplete="email" placeholder="方便協會聯絡你" /></div>
+                    <div><label for="donorPhone">聯絡電話</label><input id="donorPhone" type="tel" x-model="donorPhone" maxlength="30" autocomplete="tel" placeholder="寄送時聯絡使用" /></div>
+                    <div><label for="donorAddress">收件地址</label><input id="donorAddress" x-model="donorAddress" maxlength="250" autocomplete="street-address" placeholder="希望收到禮物或感謝卡時填寫" /></div>
+                </fieldset>
+                <div class="donation-privacy"><h4>個人資料保護</h4><p>你提供的資料僅供中華台北彈翻床發展協會核對捐款、聯絡及寄送禮物／感謝卡使用，不用於行銷。資料將透過 Google 服務傳送至協會電郵；如需查詢、更正或刪除，請聯絡 <a href="mailto:tw.trampoline.association@gmail.com">tw.trampoline.association@gmail.com</a>。</p>
+                <label class="donation-consent"><input type="checkbox" x-model="privacyConsent" :required="hasPersonalData" /><span>我已閱讀個資說明，並同意協會依上述用途處理我自願提供的個人資料。（有填個人資料時須勾選）</span></label></div>
+                <button type="submit" class="donation-email-button" :disabled="donationSending || donationSent"><i class="fa-regular fa-envelope" aria-hidden="true"></i><span x-text="donationSending ? '正在提交…' : donationSent ? '已通知協會' : '提交捐款通知'">提交捐款通知</span></button>
+                <p class="donation-email-note" role="status" aria-live="polite" x-text="donationStatus">目前為示範帳戶，請勿實際匯款。通知服務待部署後啟用；通知不代表已確認收款。</p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

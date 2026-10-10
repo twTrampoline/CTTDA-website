@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁｜CTTDA 中華台北彈翻床發展協會</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Cinzel:wght@600;800&display=swap" rel="stylesheet">
+
+    <script src="js/theme.js"></script>
+    <script defer src="js/focus.js"></script>
+    <script src="js/image-fallback.js"></script>
+
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="index" class="bg-obsidian-900 text-gray-100 font-sans selection:bg-gold-500 selection:text-black" x-data="{ 
+    mobileMenu: false, 
+    activeModal: null,
+    giftModal: false,
+    selectedTier: '3000',
+    giftTarget: 'friend',
+    recipientName: '',
+    recipientAddress: '',
+    giftMessage: '',
+    cartCount: 0,
+    addToCart(item) {
+        this.cartCount++;
+        alert('已將 「' + item + '」 加入支持清單！');
+    }
+}">
+    <div class="bg-gradient-to-r from-gold-700 via-gold-500 to-gold-700 text-black text-xs md:text-sm font-medium py-2 px-4 text-center tracking-wide shadow-md">
+        <span class="inline-block animate-pulse mr-2"><i class="fa-solid fa-heart text-red-700"></i></span>
+        推廣彈翻床運動，讓更多人認識、參與並享受每一次起跳。
+    </div>
+    <header class="site-header" @resize.window="if (window.innerWidth >= 768) mobileMenu = false">
+ <div class="header-inner">
+  <a class="header-brand" href="index.html" aria-label="中華台北彈翻床發展協會首頁"><span class="header-wordmark">CTTDA</span><span class="header-name">中華台北彈翻床發展協會<small>推廣彈翻床運動 · TRAMPOLINE DEVELOPMENT</small></span></a>
+  <nav class="header-navigation" aria-label="主要導覽"><a class="header-nav-button" href="index.html#about">關於協會</a><a class="header-nav-button" href="index.html#stories">故事與選手</a><a class="header-nav-button" href="index.html#training">訓練體系</a><a class="header-nav-button" href="index.html#news">最新消息</a><a class="header-nav-button" href="index.html#join">加入協會</a></nav>
+  <div class="header-actions"><a class="header-button header-outline" href="store.html">官方商店</a><a class="header-button header-gold" href="support.html">支持協會 ↗</a></div>
+  <button type="button" class="header-menu" @click.stop="mobileMenu = !mobileMenu" :aria-expanded="mobileMenu" aria-controls="header-mobile" :aria-label="mobileMenu ? '關閉選單' : '開啟選單'" :class="{ 'is-open': mobileMenu }"><span class="header-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
+ </div>
+ <nav id="header-mobile" class="header-mobile" aria-label="手機版導覽" x-show="mobileMenu" x-cloak x-transition.opacity.duration.150ms @keydown.escape.window="mobileMenu = false">
+  <div class="header-mobile-panel" @click.outside="mobileMenu = false">
+    <div class="header-mobile-links">
+      <a href="index.html#about" @click="mobileMenu = false">關於協會</a>
+      <a href="index.html#stories" @click="mobileMenu = false">故事與選手</a>
+      <a href="index.html#training" @click="mobileMenu = false">訓練體系</a>
+      <a href="index.html#news" @click="mobileMenu = false">最新消息</a>
+      <a href="index.html#join" @click="mobileMenu = false">加入協會</a>
+    </div>
+    <div class="header-mobile-cta">
+      <a class="header-button header-outline" href="store.html" @click="mobileMenu = false">官方商店</a>
+      <a class="header-button header-gold" href="support.html" @click="mobileMenu = false">支持協會 ↗</a>
+    </div>
+  </div>
+ </nav>
+</header>
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-obsidian-900">
+        <div class="absolute inset-0 z-0 opacity-40 mix-blend-luminosity">
+            <img src="assets/hero-athlete.svg" alt="Trampoline Athlete Jumping" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-obsidian-900/70 to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-obsidian-900/90 via-transparent to-obsidian-900/90 z-10"></div>
+
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center lg:text-left">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-semibold uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-gold-400 animate-ping"></span>
+                        Chinese Taipei Trampoline Development Association
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white leading-tight">
+                        <span class="font-serif gold-gradient-text block text-5xl sm:text-7xl mb-2">FLY HIGH.</span>
+                        讓更多人認識彈翻床，從每一次起跳開始。
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-gray-300 font-light max-w-2xl leading-relaxed">
+                        彈翻床結合協調、平衡與空中動作，讓運動充滿挑戰與樂趣。<br class="hidden sm:inline">
+                        我們以推廣彈翻床運動為核心，透過運動體驗、基礎教學與選手培育，讓更多人參與，一起支持這項運動持續發展。
+                    </p>
+
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="support.html" class="bg-gold-metallic hover:bg-gold-400 text-black font-extrabold px-8 py-4 rounded-xl shadow-xl transition transform hover:-translate-y-1 flex items-center gap-3 text-base">
+                            <i class="fa-solid fa-heart text-red-800"></i> 支持彈翻床推廣
+                        </a>
+                        <a href="#stories" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl border border-white/20 transition backdrop-blur-sm flex items-center gap-2">
+                            <i class="fa-solid fa-circle-play text-gold-400"></i> 看選手的感動故事
+                        </a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 flex flex-col items-center lg:items-end justify-center">
+                    <div class="bg-obsidian-800/80 backdrop-blur-md p-6 rounded-2xl border border-gold-500/30 max-w-sm text-center shadow-2xl relative">
+                        <div class="text-gold-400 font-serif text-3xl font-bold mb-1">FROM TAIWAN</div>
+                        <div class="text-gray-400 text-xs tracking-widest uppercase mb-4">TO THE WORLD</div>
+                        <div class="w-12 h-0.5 bg-gold-500 mx-auto mb-4"></div>
+                        <p class="text-sm text-gray-300 italic mb-4">
+                            從每一次基本動作開始，將訓練累積成穩定的比賽表現。
+                        </p>
+                        <div class="text-xs text-gold-400 font-semibold">— CTTDA 訓練理念</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="news" class="py-24 bg-obsidian-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between mb-12">
+                <div>
+                    <span class="text-gold-400 font-serif tracking-widest text-xs uppercase">FEATURED NEWS</span>
+                    <h2 class="text-3xl font-bold text-white mt-1">最新動態與賽事報導</h2>
+                </div>
+                <a href="#" class="text-gold-400 hover:text-white text-sm font-semibold flex items-center gap-1">
+                    更多消息 <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-obsidian-800 border border-gray-800 rounded-2xl overflow-hidden hover:border-gold-500/40 transition">
+                    <img src="assets/athlete1.svg" alt="News" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-xs text-gold-400 font-medium mb-2">2025 · 賽事紀錄</div>
+                        <h3 class="font-bold text-lg text-white mb-2 hover:text-gold-400 cursor-pointer">2025 年泰國比賽與海外交流紀錄</h3>
+                        <p class="text-xs text-gray-400 line-clamp-2">透過海外比賽累積場地適應、比賽節奏與臨場經驗。</p>
+                    </div>
+                </div>
+                <div class="bg-obsidian-800 border border-gray-800 rounded-2xl overflow-hidden hover:border-gold-500/40 transition">
+                    <img src="assets/athlete1.svg" alt="News" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-xs text-gold-400 font-medium mb-2">2025 · 海外交流</div>
+                        <h3 class="font-bold text-lg text-white mb-2 hover:text-gold-400 cursor-pointer">2025 年日本比賽及移地集訓</h3>
+                        <p class="text-xs text-gray-400 line-clamp-2">以不同的訓練環境檢視技術，並累積團隊交流經驗。</p>
+                    </div>
+                </div>
+                <div class="bg-obsidian-800 border border-gray-800 rounded-2xl overflow-hidden hover:border-gold-500/40 transition">
+                    <img src="assets/athlete2.svg" alt="News" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-xs text-gold-400 font-medium mb-2">2026.11 · 賽事準備</div>
+                        <h3 class="font-bold text-lg text-white mb-2 hover:text-gold-400 cursor-pointer">2026 年 11 月｜全國錦標賽備戰中</h3>
+                        <p class="text-xs text-gray-400 line-clamp-2">目前以訓練與比賽準備為重點，賽事資訊及成果將於確認後更新。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="about" class="bg-white text-gray-900 py-20 px-4 sm:px-6 lg:px-8 border-y-8 border-gold-500">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center space-y-6">
+                <span class="text-gold-600 font-serif tracking-widest uppercase text-sm font-bold">ABOUT CTTDA</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-gray-900 leading-snug">
+                    從基礎訓練開始，陪選手走得更遠。
+                </h2>
+                <div class="w-20 h-1 bg-gold-500 mx-auto my-6"></div>
+                
+                <p class="text-lg md:text-xl text-gray-700 leading-relaxed max-w-3xl mx-auto font-light">
+                    彈翻床運動（Trampoline）在台灣，或許還不是家喻戶曉的大眾項目。<br>
+                    從穩定起跳、控制空中姿態，到準確落回網面，每一個動作都需要反覆練習。孩子們在一次次起跳中，學習專注、掌握節奏，也逐步建立挑戰自己的信心。
+                </p>
+
+                <p class="text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                    中華台北彈翻床發展協會（CTTDA）以推廣彈翻床運動為宗旨，讓更多人認識並參與這項運動。我們透過運動體驗、基礎教學、安全觀念推廣與選手培育，串連日常參與、持續訓練及競賽交流，支持彈翻床運動長遠發展。
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-6 pt-10 text-left">
+                    <div class="bg-warmbg p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition">
+                        <div class="text-gold-600 text-2xl font-bold mb-2"><i class="fa-solid fa-shield-halved mr-2"></i>專業安全</div>
+                        <p class="text-sm text-gray-600">重視基本動作、身體控制、保護觀念與循序漸進的訓練安排。</p>
+                    </div>
+                    <div class="bg-warmbg p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition">
+                        <div class="text-gold-600 text-2xl font-bold mb-2"><i class="fa-solid fa-earth-asia mr-2"></i>國際接軌</div>
+                        <p class="text-sm text-gray-600">透過海外比賽與移地集訓，累積不同訓練環境及競賽經驗。</p>
+                    </div>
+                    <div class="bg-warmbg p-6 rounded-2xl border border-gray-200 hover:shadow-lg transition">
+                        <div class="text-gold-600 text-2xl font-bold mb-2"><i class="fa-solid fa-hands-holding-child mr-2"></i>溫暖陪伴</div>
+                        <p class="text-sm text-gray-600">希望串連家庭、支持者與合作夥伴，讓更多人有機會接觸彈翻床運動。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-obsidian-900 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-gold-400 font-serif text-sm tracking-widest uppercase mb-2">OUR FOCUS</h2>
+                <h3 class="text-3xl sm:text-4xl font-bold text-white">我們正在做的事：四大核心行動</h3>
+            </div>
+
+            <div class="focus-section">
+<div class="focus-grid grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<button type="button" class="focus-card bg-gradient-to-b from-obsidian-800 to-obsidian-700 border border-gold-500/40 p-8 rounded-2xl shadow-xl relative group hover:border-gold-400 transition focus-summary" id="focus-trigger-1" aria-expanded="false" aria-controls="focus-panel-1">
+                        <div class="text-gold-400 text-4xl font-serif font-bold mb-4">01</div>
+                        <h4 class="text-xl font-bold text-white mb-3">競技選手系統培育</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">涵蓋技術、體能、心理與競賽準備，按選手能力與目標安排訓練。</p>
+                        <span class="focus-more">了解培訓計畫 <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+<button type="button" class="focus-card bg-obsidian-800 border border-gray-800 p-8 rounded-2xl shadow-xl hover:border-gold-500/30 transition group focus-summary" id="focus-trigger-2" aria-expanded="false" aria-controls="focus-panel-2">
+                        <div class="text-gray-500 text-4xl font-serif font-bold mb-4">02</div>
+                        <h4 class="text-xl font-bold text-white mb-3">國際賽事與全隊移地訓練</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">讓選手與教練整隊出發，在不同訓練及比賽環境中學習、交流。</p>
+                        <span class="focus-more">了解交流計畫 <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+<button type="button" class="focus-card bg-obsidian-800 border border-gray-800 p-8 rounded-2xl shadow-xl hover:border-gold-500/30 transition group focus-summary" id="focus-trigger-3" aria-expanded="false" aria-controls="focus-panel-3">
+                        <div class="text-gray-500 text-4xl font-serif font-bold mb-4">03</div>
+                        <h4 class="text-xl font-bold text-white mb-3">青少年基層紮根</h4>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-6">推廣彈翻床運動與安全訓練觀念，讓更多青少年認識這項運動。</p>
+                        <span class="focus-more">了解基層推廣 <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+<button type="button" class="focus-card bg-gradient-to-b from-obsidian-800 to-obsidian-700 border border-gold-500/40 p-8 rounded-2xl shadow-xl relative group hover:border-gold-400 transition focus-summary" id="focus-trigger-4" aria-expanded="false" aria-controls="focus-panel-4">
+                        <div class="text-gold-400 text-4xl font-serif font-bold mb-4">04</div>
+                        <h4 class="text-xl font-bold text-white mb-3">社會支持與訓練環境</h4>
+                        <p class="text-gray-300 text-sm leading-relaxed mb-6">整合企業、家庭及社會資源，協助添置器材與籌設新的訓練空間。</p>
+                        <span class="focus-more">了解支持方向 <i class="fa-solid fa-chevron-down" aria-hidden="true"></i></span>
+                    </button>
+</div>
+<div class="focus-detail" id="focus-panel-1" role="region" aria-labelledby="focus-trigger-1" hidden>
+                        <div class="focus-visual">
+                            <img src="assets/athlete1.svg" alt="競技選手系統培育" class="focus-image">
+                            <span class="focus-badge">技術 × 體能 × 心理</span>
+                        </div>
+                        <div class="focus-copy"><h4 class="focus-detail-title">競技選手系統培育</h4>
+                            <p>從基本動作、空中姿態到穩定落網，我們重視循序漸進、動作品質與長期累積。</p>
+                            <ul class="focus-points">
+                                <li>依程度安排技術訓練與動作修正</li>
+                                <li>結合核心、協調與自主練習習慣</li>
+                                <li>透過模擬比賽培養穩定度與專注力</li>
+                            </ul>
+                            <a class="focus-inline-link" href="actions.html#training">查看完整內容 ↗</a>
+                        </div>
+                    </div>
+<div class="focus-detail" id="focus-panel-2" role="region" aria-labelledby="focus-trigger-2" hidden>
+                        <div class="focus-visual">
+                            <img src="assets/hero-athlete.svg" alt="國際賽事與全隊移地訓練" class="focus-image">
+                            <span class="focus-badge">交流 × 集訓 × 海外參賽</span>
+                        </div>
+                        <div class="focus-copy"><h4 class="focus-detail-title">國際賽事與全隊移地訓練</h4>
+                            <p>支持整支隊伍一同出發，在不同場地與賽事節奏中吸收經驗，再帶回日常訓練。</p>
+                            <ul class="focus-points">
+                                <li>移地集訓與技術交流安排</li>
+                                <li>交通、住宿、場地及帶隊支援</li>
+                                <li>把交流收穫轉化成訓練成果</li>
+                            </ul>
+                            <a class="focus-inline-link" href="actions.html#exchange">查看完整內容 ↗</a>
+                        </div>
+                    </div>
+<div class="focus-detail" id="focus-panel-3" role="region" aria-labelledby="focus-trigger-3" hidden>
+                        <div class="focus-visual">
+                            <img src="assets/athlete2.svg" alt="青少年基層紮根" class="focus-image">
+                            <span class="focus-badge">入門 × 安全 × 推廣</span>
+                        </div>
+                        <div class="focus-copy"><h4 class="focus-detail-title">青少年基層紮根</h4>
+                            <p>希望讓更多孩子和家長先認識彈翻床，再循序進入安全、正確而有趣的學習方式。</p>
+                            <ul class="focus-points">
+                                <li>運動介紹與基礎體驗活動</li>
+                                <li>建立安全觀念與器材使用秩序</li>
+                                <li>歡迎學校、社區及團體合作推廣</li>
+                            </ul>
+                            <a class="focus-inline-link" href="actions.html#outreach">查看完整內容 ↗</a>
+                        </div>
+                    </div>
+<div class="focus-detail" id="focus-panel-4" role="region" aria-labelledby="focus-trigger-4" hidden>
+                        <div class="focus-visual">
+                            <img src="assets/athlete1.svg" alt="社會支持與訓練環境" class="focus-image">
+                            <span class="focus-badge">器材 × 空間 × 夥伴合作</span>
+                        </div>
+                        <div class="focus-copy"><h4 class="focus-detail-title">社會支持與訓練環境</h4>
+                            <p>每一份支持都會轉化成更穩定的訓練資源，幫助選手有更好的學習與成長環境。</p>
+                            <ul class="focus-points">
+                                <li>添置彈翻床、保護墊及輔助器材</li>
+                                <li>朝挑高 8 米以上的新館方向規劃</li>
+                                <li>串連企業、家庭與專業夥伴資源</li>
+                            </ul>
+                            <a class="focus-inline-link" href="actions.html#resources">查看完整內容 ↗</a>
+                        </div>
+                    </div>
+</div>
+        </div>
+    </section>
+    <section id="stories" class="py-24 bg-obsidian-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-gold-400 font-serif tracking-widest text-sm uppercase">TOUCHING STORIES</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white mt-2">飛翔背後的故事：看見他們的執著與汗水</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto mt-4 text-sm">
+                    訓練的進步往往來自日常累積：動作修正、體能訓練、反覆練習，以及每次訓練後的檢討。
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10 items-stretch">
+                <div class="bg-obsidian-900 border border-gold-500/30 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+                    <div class="md:w-1/2 relative h-64 md:h-auto">
+                        <img src="assets/athlete1.svg" alt="Athlete Practice" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-gold-500 text-black text-xs font-bold px-3 py-1 rounded-full">
+                            選手培育
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="text-gold-400 text-xs font-serif tracking-wider uppercase mb-1">STORY #01</div>
+                            <h3 class="text-2xl font-bold text-white mb-3">把每一次練習，變成下一次上場的準備。</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed font-light">
+                                每位選手的訓練進度與目標都不同。教練會根據當下能力，持續修正動作、體能與練習重點。
+                            </p>
+                        </div>
+                        <div class="border-t border-gray-800 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-gray-400"><i class="fa-solid fa-trophy text-gold-400 mr-1"></i> 持續訓練與動作檢討</span>
+                            <a href="support.html" class="text-gold-400 hover:text-white text-xs font-bold underline">為羽晨加油 <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-obsidian-900 border border-gold-500/30 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
+                    <div class="md:w-1/2 relative h-64 md:h-auto">
+                        <img src="assets/athlete2.svg" alt="Athlete Jumping High" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-gold-500 text-black text-xs font-bold px-3 py-1 rounded-full">
+                            海外賽事與移地集訓
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8 flex flex-col justify-between space-y-4">
+                        <div>
+                            <div class="text-gold-400 text-xs font-serif tracking-wider uppercase mb-1">STORY #02</div>
+                            <h3 class="text-2xl font-bold text-white mb-3">從訓練場，走向不同的競賽舞台。</h3>
+                            <p class="text-gray-300 text-sm leading-relaxed font-light">
+                                協會曾參與泰國及日本的比賽，也安排移地集訓。這些經驗讓選手有機會在不同場地與競賽環境中累積實戰經驗。
+                            </p>
+                        </div>
+                        <div class="border-t border-gray-800 pt-4 flex items-center justify-between">
+                            <span class="text-xs text-gray-400"><i class="fa-solid fa-medal text-gold-400 mr-1"></i> 2025 · 泰國及日本比賽</span>
+                            <a href="support.html" class="text-gold-400 hover:text-white text-xs font-bold underline">資助宇翔出賽 <i class="fa-solid fa-chevron-right text-[10px]"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-16 bg-gradient-to-r from-gold-900/30 via-gold-500/20 to-gold-900/30 border border-gold-500/40 p-8 rounded-2xl text-center max-w-4xl mx-auto backdrop-blur-md">
+                <i class="fa-solid fa-quote-left text-gold-400 text-3xl mb-3 opacity-60"></i>
+                <p class="text-lg md:text-xl text-gold-200 italic font-light leading-relaxed">
+                    每一份支持，都有機會成為訓練、參賽與運動推廣的助力。實際資助用途與方式，將由協會進一步確認並公告。
+                </p>
+                <div class="mt-4 font-bold text-white text-sm">— 中華台北彈翻床發展協會</div>
+            </div>
+        </div>
+    </section>
+    <section id="training" class="bg-white text-gray-900 py-24 px-4 sm:px-6 lg:px-8 border-t-8 border-gold-500">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-600 font-serif tracking-widest text-xs font-bold uppercase">PROFESSIONAL SYSTEM</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-gray-900 mt-2">TRAIN. PERFORM. GO BEYOND.</h2>
+                <p class="text-gray-600 mt-4 text-base">
+                    訓練依選手能力與目標逐步安排；以下為發展方向示意，實際進度會因人而異。
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-4 relative">
+                <div class="bg-warmbg border border-gray-200 p-6 rounded-2xl relative shadow-sm hover:shadow-md transition text-center md:text-left">
+                    <div class="text-gold-600 font-serif font-black text-2xl mb-1">方向 01</div>
+                    <div class="text-xs uppercase text-gray-400 font-bold tracking-wider mb-2">Foundation</div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-2">基礎能力</h3>
+                    <p class="text-xs text-gray-600">身體協調、落地安全防護、基本核心控制與空間感知。</p>
+                </div>
+                <div class="bg-warmbg border border-gray-200 p-6 rounded-2xl relative shadow-sm hover:shadow-md transition text-center md:text-left">
+                    <div class="text-gold-600 font-serif font-black text-2xl mb-1">方向 02</div>
+                    <div class="text-xs uppercase text-gray-400 font-bold tracking-wider mb-2">Development</div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-2">技術發展</h3>
+                    <p class="text-xs text-gray-600">空轉技巧、體能六站強化、單項難度動作拆解與重複訓練。</p>
+                </div>
+                <div class="bg-warmbg border border-gray-200 p-6 rounded-2xl relative shadow-sm hover:shadow-md transition text-center md:text-left">
+                    <div class="text-gold-600 font-serif font-black text-2xl mb-1">方向 03</div>
+                    <div class="text-xs uppercase text-gray-400 font-bold tracking-wider mb-2">Competition</div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-2">競賽訓練</h3>
+                    <p class="text-xs text-gray-600">成套動作連貫性、心理素質抗壓、裁判評分標準對齊。</p>
+                </div>
+                <div class="bg-warmbg border border-gray-200 p-6 rounded-2xl relative shadow-sm hover:shadow-md transition text-center md:text-left">
+                    <div class="text-gold-600 font-serif font-black text-2xl mb-1">方向 04</div>
+                    <div class="text-xs uppercase text-gray-400 font-bold tracking-wider mb-2">Elite</div>
+                    <h3 class="font-bold text-gray-800 text-lg mb-2">高階競技</h3>
+                    <p class="text-xs text-gray-600">高難度空翻組合、運動科學數據監測、一對一專項極限突破。</p>
+                </div>
+                <div class="bg-gold-500 text-black p-6 rounded-2xl relative shadow-lg text-center md:text-left">
+                    <div class="font-serif font-black text-2xl mb-1 text-black">方向 05</div>
+                    <div class="text-xs uppercase text-black/70 font-bold tracking-wider mb-2">International</div>
+                    <h3 class="font-bold text-black text-lg mb-2">國際賽事</h3>
+                    <p class="text-xs text-black/80">代表國家出征亞運、世錦賽，爭取最高體育榮譽。</p>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="support.html" class="inline-flex items-center gap-2 bg-obsidian-900 hover:bg-gold-600 text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition">
+                    了解訓練與賽事支持方式 <i class="fa-solid fa-arrow-right text-gold-400"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="py-16 bg-obsidian-800 text-center px-6"><p class="text-gold-400 font-bold mb-4">SUPPORT CTTDA</p><h2 class="text-3xl font-bold mb-6">讓支持成為選手持續訓練的力量</h2><a href="support.html" class="inline-block bg-gold-metallic text-black font-bold px-8 py-4 rounded-xl">了解支持與會員月捐 →</a></section>
+    <section id="store" class="py-24 bg-white text-gray-900 border-y-8 border-gold-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <span class="text-gold-600 font-serif tracking-widest text-xs font-bold uppercase">CTTDA OFFICIAL STORE</span>
+                    <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-1">官方商店 · 穿上信念，傳遞祝福</h2>
+                    <p class="text-gray-600 text-sm mt-2">選購協會商品，為彈翻床運動多一份支持。商品收入用途與相關細節將以協會公告為準。</p>
+                </div>
+                <div class="mt-4 md:mt-0 flex gap-2">
+                    <span class="bg-warmbg text-gold-700 text-xs font-bold px-3 py-1.5 rounded-full border border-gold-300">
+                        <i class="fa-solid fa-truck-fast mr-1"></i> 支援代寫卡片直送朋友
+                    </span>
+                </div>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-warmbg border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group"><div class="relative h-60 bg-gray-100 overflow-hidden"><a href="store.html#store" aria-label="前往官方商城選購商品" class="block h-full"><img src="assets/omamori.jpg" data-fallback="assets/product-omamori.svg" alt="CTTDA 飛躍守御守" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"><span class="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold px-2 py-1 rounded">祝福小物</span></a></div><div class="p-6"><div class="text-xs text-gold-600 font-semibold mb-1">祈福系列</div><h3 class="font-bold text-gray-900 text-lg mb-1">CTTDA 飛躍守御守</h3><p class="text-xs text-gray-500 mb-4">以平安、突破與勇氣為寓意的協會紀念小物。</p><div class="flex items-center justify-between pt-2 border-t border-gray-200"><span class="text-lg font-black text-gold-600">NT$ 280</span><a href="store.html#store" class="bg-gray-900 hover:bg-gold-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition">前往商城</a></div></div></div>
+                <div class="bg-warmbg border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group"><div class="relative h-60 bg-gray-100 overflow-hidden"><a href="store.html#store" aria-label="前往官方商城選購商品" class="block h-full"><img src="assets/shocks.PNG" data-fallback="assets/socks-real.jpg|assets/product-socks.svg" alt="CTTDA 白色運動襪" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></a></div><div class="p-6"><div class="text-xs text-gold-600 font-semibold mb-1">訓練配件</div><h3 class="font-bold text-gray-900 text-lg mb-1">CTTDA 運動襪</h3><p class="text-xs text-gray-500 mb-4">白色襪款搭配金色 CTTDA 標誌；尺寸與供貨狀況下單前確認。</p><div class="flex items-center justify-between pt-2 border-t border-gray-200"><span class="text-lg font-black text-gold-600">NT$ 380</span><a href="store.html#store" class="bg-gray-900 hover:bg-gold-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition">前往商城</a></div></div></div>
+                <div class="bg-warmbg border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group"><div class="relative h-60 bg-gray-100 overflow-hidden"><a href="store.html#store" aria-label="前往官方商城選購商品" class="block h-full"><img src="assets/towel.PNG" data-fallback="assets/product-towel.svg" alt="CTTDA 運動毛巾" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></a></div><div class="p-6"><div class="text-xs text-gold-600 font-semibold mb-1">運動裝備</div><h3 class="font-bold text-gray-900 text-lg mb-1">CTTDA 運動毛巾</h3><p class="text-xs text-gray-500 mb-4">訓練及日常運動皆適用，材質與尺寸以正式商品資訊為準。</p><div class="flex items-center justify-between pt-2 border-t border-gray-200"><span class="text-lg font-black text-gold-600">NT$ 350</span><a href="store.html#store" class="bg-gray-900 hover:bg-gold-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition">前往商城</a></div></div></div>
+                <div class="bg-warmbg border border-gray-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition group"><div class="relative h-60 bg-gray-100 overflow-hidden"><a href="store.html#store" aria-label="前往官方商城選購商品" class="block h-full"><img src="assets/product-bag.svg" alt="CTTDA 提袋" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"></a></div><div class="p-6"><div class="text-xs text-gold-600 font-semibold mb-1">協會周邊</div><h3 class="font-bold text-gray-900 text-lg mb-1">CTTDA 提袋</h3><p class="text-xs text-gray-500 mb-4">協會紀念商品，款式、尺寸及供貨資訊將陸續更新。</p><div class="flex items-center justify-between pt-2 border-t border-gray-200"><span class="text-lg font-black text-gold-600">NT$ 450</span><a href="store.html#store" class="bg-gray-900 hover:bg-gold-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition">前往商城</a></div></div></div>
+            </div>
+        </div>
+    </section>
+    <section id="join" class="py-24 bg-obsidian-800 border-t border-gold-500/20 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-gold-400 font-serif tracking-widest text-xs uppercase">JOIN OUR COMMUNITY</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-white mt-2">不只是旁觀這項運動，成為推動它的人</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto mt-4 text-sm">選擇最適合您的身份，一起陪伴台灣彈翻床選手站上世界舞台。</p>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-16 text-left">
+                <div class="bg-obsidian-900 p-8 rounded-3xl border border-gray-800 hover:border-gold-500 transition">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-user-plus"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">MEMBER 協會會員</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-6">參與協會年度大會、優先報名內部賽事與講座，直接參與台灣彈翻床推廣。</p>
+                    <a href="support.html" class="text-gold-400 text-xs font-bold flex items-center gap-2 hover:underline">
+                        申請加入會員 <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+                <div class="bg-obsidian-900 p-8 rounded-3xl border border-gold-500/40 hover:border-gold-400 transition relative">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-metallic text-black flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">SUPPORTER 支持會員</h3>
+                    <p class="text-xs text-gray-300 leading-relaxed mb-6">定期定額或單筆資助選手訓練，實際支持方式及資訊更新安排，請以協會公告為準。</p>
+                    <a href="support.html" class="text-gold-400 text-xs font-bold flex items-center gap-2 hover:underline">
+                        成為支持者 <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+                <div class="bg-obsidian-900 p-8 rounded-3xl border border-gray-800 hover:border-gold-500 transition">
+                    <div class="w-12 h-12 rounded-2xl bg-gold-500/20 text-gold-400 flex items-center justify-center text-xl font-bold mb-6">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-2">PARTNER 企業合作</h3>
+                    <p class="text-xs text-gray-400 leading-relaxed mb-6">企業冠名贊助、選手裝備聯名、ESG 體育公益推動，共同提升企業形象。</p>
+                    <a href="index.html#contact" class="text-gold-400 text-xs font-bold flex items-center gap-2 hover:underline">
+                        洽談企業合作 <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="bg-obsidian-900 border-t border-gold-500/30 py-16 px-4 sm:px-6 lg:px-8 text-center text-white">
+        <div class="max-w-3xl mx-auto">
+            <p class="text-gold-400 tracking-widest text-xs font-bold uppercase mb-4">CONTACT US</p>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-5">聯絡我們</h2>
+            <p class="text-gray-300 text-sm leading-8 mb-6">歡迎企業合作、器材或場地資源支持，以及各類彈翻床推廣與訓練交流洽詢。</p>
+            <a href="mailto:tw.trampoline.association@gmail.com" class="contact-email">tw.trampoline.association@gmail.com</a>
+            <div class="mt-8"><a class="header-button header-gold" href="mailto:tw.trampoline.association@gmail.com?subject=CTTDA%20%E5%90%88%E4%BD%9C%E6%B4%BD%E8%A9%A2">發送合作洽詢電郵 <i class="fa-solid fa-arrow-up-right-from-square ml-2" aria-hidden="true"></i></a></div>
+        </div>
+    </section>
+    <footer class="bg-obsidian-900 text-gray-400 pt-16 pb-12 border-t border-gold-500/30 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-8 pb-12 border-b border-gray-800">
+                <div class="col-span-2 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 rounded-full bg-gold-metallic flex items-center justify-center font-serif font-bold text-black">C</div>
+                        <span class="font-bold text-white text-lg">CTTDA 中華台北彈翻床發展協會</span>
+                    </div>
+                    <p class="text-xs text-gray-500 max-w-sm leading-relaxed">
+                        Chinese Taipei Trampoline Development Association<br>
+                        致力於建立完整彈翻床訓練體系，培養具國際競爭力之選手。
+                    </p>
+                    <div class="flex space-x-4 text-gold-400 pt-2">
+                        <a href="#" class="hover:text-white"><i class="fa-brands fa-facebook text-lg"></i></a>
+                        <a href="#" class="hover:text-white"><i class="fa-brands fa-instagram text-lg"></i></a>
+                        <a href="#" class="hover:text-white"><i class="fa-brands fa-youtube text-lg"></i></a>
+                        <a href="mailto:tw.trampoline.association@gmail.com" aria-label="傳送電子郵件給協會" class="hover:text-white"><i class="fa-solid fa-envelope text-lg"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-xs tracking-wider uppercase">關於我們</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#about" class="hover:text-gold-400">協會簡介</a></li>
+                        <li><a href="#about" class="hover:text-gold-400">發展理念</a></li>
+                        <li><a href="#stories" class="hover:text-gold-400">選手感人故事</a></li>
+                        <li><a href="#join" class="hover:text-gold-400">加入我們</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-xs tracking-wider uppercase">訓練與商店</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="#training" class="hover:text-gold-400">訓練與選手培育</a></li>
+                        <li><a href="store.html" class="hover:text-gold-400">官方禮物商店</a></li>
+                        <li><a href="store.html" class="hover:text-gold-400">飛躍守 / 紀念品</a></li>
+                        <li><a href="support.html" class="hover:text-gold-400">捐款回饋機制</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4 text-xs tracking-wider uppercase">支持與聯絡</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><a href="support.html" class="hover:text-gold-400">我要捐款</a></li>
+                        <li><a href="store.html#store" class="hover:text-gold-400">前往商城選購禮物</a></li>
+                        <li><a href="index.html#contact" class="hover:text-gold-400">企業合作方案</a></li>
+                        <li><a href="index.html#contact" class="hover:text-gold-400">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-500">
+                <div>&copy; 2026 Chinese Taipei Trampoline Development Association (CTTDA). All Rights Reserved.</div>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:underline">隱私權政策</a>
+                    <a href="#" class="hover:underline">捐款服務條款</a>
+                    <a href="#" class="hover:underline">財團法人與協會公開資訊</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div x-show="giftModal" x-transition class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm" style="display: none;">
+        <div @click.away="giftModal = false" class="bg-obsidian-900 border border-gold-500/50 rounded-3xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl overflow-y-auto max-h-[90vh]">
+            <button @click="giftModal = false" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <div class="w-12 h-12 bg-gold-metallic rounded-full flex items-center justify-center text-black text-xl font-bold mx-auto mb-3">
+                    <i class="fa-solid fa-gift"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-white">支持意向｜尚未開放收款</h3>
+                <p class="text-xs text-gray-400 mt-1">此區為版面示意，尚未連接正式收款或資料送出系統。</p>
+            </div>
+            <form @submit.prevent="alert('目前網站尚未連接正式收款或資料送出系統，這次不會完成捐款。請先聯絡協會確認支持方式。');" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-bold text-gold-400 mb-2">1. 禮包收件人對象：</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="flex items-center gap-2 p-3 rounded-xl border border-gray-700 bg-obsidian-800 cursor-pointer hover:border-gold-500">
+                            <input type="radio" name="target" value="self" x-model="giftTarget" class="text-gold-500 focus:ring-gold-500">
+                            <span class="text-xs text-white">寄給我自己</span>
+                        </label>
+                        <label class="flex items-center gap-2 p-3 rounded-xl border border-gold-500/50 bg-gold-500/10 cursor-pointer hover:border-gold-400">
+                            <input type="radio" name="target" value="friend" x-model="giftTarget" class="text-gold-500 focus:ring-gold-500">
+                            <span class="text-xs font-bold text-gold-300">🎁 贈送給親友/孩子</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">收件人姓名 / 稱呼</label>
+                        <input type="text" x-model="recipientName" placeholder="例如：林小明 先生/小姐" required class="w-full bg-obsidian-800 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:border-gold-500 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-gray-300 mb-1">寄送地址</label>
+                        <input type="text" x-model="recipientAddress" placeholder="請填寫完整地址以便寄送飛躍禮包" required class="w-full bg-obsidian-800 border border-gray-700 rounded-xl px-4 py-2.5 text-xs text-white focus:border-gold-500 focus:outline-none">
+                    </div>
+                    <div x-show="giftTarget === 'friend'">
+                        <label class="block text-xs text-gold-400 font-bold mb-1"><i class="fa-solid fa-pen-nib mr-1"></i> 代寫祝福卡片內容（免費）</label>
+                        <textarea x-model="giftMessage" rows="3" placeholder="例如：祝小明生日快樂！這份飛躍守代表堅持與勇敢，願你在新的一年也能像彈翻床選手一樣飛得又高又遠！" class="w-full bg-obsidian-800 border border-gold-500/40 rounded-xl p-3 text-xs text-white focus:border-gold-500 focus:outline-none"></textarea>
+                    </div>
+                </div>
+                <div class="pt-2">
+                    <label class="block text-xs text-gray-300 mb-2">付款方式</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <button type="button" class="p-2 border border-gold-500 bg-gold-500/10 text-gold-300 rounded-lg text-xs font-bold text-center">尚未開通</button>
+                        <button type="button" class="p-2 border border-gray-700 bg-obsidian-800 text-gray-400 rounded-lg text-xs text-center hover:border-gray-500">ATM 轉帳</button>
+                        <button type="button" class="p-2 border border-gray-700 bg-obsidian-800 text-gray-400 rounded-lg text-xs text-center hover:border-gray-500">尚未開通</button>
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-gold-metallic hover:bg-gold-400 text-black font-extrabold py-3.5 rounded-xl shadow-lg transition text-sm mt-4">
+                    目前尚未開放正式捐款 <i class="fa-solid fa-arrow-right ml-1"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
