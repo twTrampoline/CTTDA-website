@@ -195,3 +195,5 @@ html{scroll-padding-top:100px} [x-cloak]{display:none!important} :focus-visible{
 .site-footer-bottom{border-top:1px solid #ffffff12;padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:11px;line-height:1.8;color:#99958d}.site-footer-bottom a{white-space:nowrap;color:#d8bd78}
 @media(max-width:1000px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:36px}.site-footer-brand{grid-column:1/-1}.site-footer-bottom{flex-wrap:wrap}}
 @media(max-width:600px){.site-footer{padding:40px 20px 24px}.site-footer-grid{grid-template-columns:1fr;gap:32px;padding-bottom:32px}.site-footer-brand{grid-column:auto}.site-footer-logo strong{font-size:16px}.site-footer-bottom{align-items:flex-start;flex-direction:column;gap:10px}.site-footer-contact p{margin-top:0}}
+.news-photo{object-position:center 58%}
+.focus-section .focus-image[src$="althete.PNG"]{object-fit:contain;background:#171717}
