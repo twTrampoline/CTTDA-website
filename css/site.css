@@ -183,3 +183,15 @@ html{scroll-padding-top:100px} [x-cloak]{display:none!important} :focus-visible{
 .donation-followup .donation-consent input{appearance:auto;accent-color:#d8bd78;width:18px;height:18px;flex:0 0 18px;margin:4px 0 0;padding:0}
 .donation-email-button{width:100%}.donation-email-button:disabled{opacity:.6;cursor:default}
 @media(max-width:600px){.donor-fields{grid-template-columns:1fr}}
+
+.product-square{aspect-ratio:1 / 1;width:100%;position:relative;overflow:hidden}
+.product-square>a{position:absolute;inset:0;display:block}
+.product-square img{width:100%;height:100%;object-fit:contain}
+.site-footer{background:#101011;border-top:1px solid #bd9b5350;color:#b9b5ad;padding:64px 24px 24px;font-size:14px}
+.site-footer-inner{max-width:1280px;margin:auto}.site-footer-grid{display:grid;grid-template-columns:1.25fr .85fr 1fr;gap:56px;padding-bottom:48px}
+.site-footer-logo{display:flex;align-items:center;gap:14px;color:#f5f0e6}.site-footer-logo img{flex-shrink:0;object-fit:contain}.site-footer-logo strong{display:block;font-size:18px;line-height:1.6}.site-footer-logo small{display:block;font-size:10px;letter-spacing:.08em;color:#bd9b53;margin-top:4px;line-height:1.6}
+.site-footer-brand p,.site-footer-contact p{font-size:13px;line-height:1.9;margin-top:20px}.site-footer h2{color:#ead595;font-size:13px;font-weight:700;letter-spacing:.12em;margin-bottom:20px}
+.site-footer-links{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}.site-footer a{transition:color .2s}.site-footer a:hover{color:#ead595}.site-footer-email{display:block;font-size:13px;overflow-wrap:anywhere;margin-top:16px;color:#f5f0e6;line-height:1.8}.site-footer-cta{display:inline-flex;align-items:center;justify-content:space-between;gap:32px;margin-top:24px;padding:10px 16px;border:1px solid #bd9b5370;border-radius:8px;color:#ead595}
+.site-footer-bottom{border-top:1px solid #ffffff12;padding-top:24px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:11px;line-height:1.8;color:#99958d}.site-footer-bottom a{white-space:nowrap;color:#d8bd78}
+@media(max-width:1000px){.site-footer-grid{grid-template-columns:1fr 1fr;gap:36px}.site-footer-brand{grid-column:1/-1}.site-footer-bottom{flex-wrap:wrap}}
+@media(max-width:600px){.site-footer{padding:40px 20px 24px}.site-footer-grid{grid-template-columns:1fr;gap:32px;padding-bottom:32px}.site-footer-brand{grid-column:auto}.site-footer-logo strong{font-size:16px}.site-footer-bottom{align-items:flex-start;flex-direction:column;gap:10px}.site-footer-contact p{margin-top:0}}
