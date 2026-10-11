@@ -36,7 +36,7 @@
     </div>
     <header class="site-header" @resize.window="if (window.innerWidth >= 768) mobileMenu = false">
  <div class="header-inner">
-  <a class="header-brand" href="index.html" aria-label="中華台北彈翻床發展協會首頁"><span class="header-wordmark">CTTDA</span><span class="header-name">中華台北彈翻床發展協會<small>推廣彈翻床運動 · TRAMPOLINE DEVELOPMENT</small></span></a>
+  <a class="header-brand" href="index.html" aria-label="中華台北彈翻床發展協會首頁"><img class="header-logo" src="assets/cttda-logo.svg" alt="CTTDA" width="60" height="60"><span class="header-name">中華台北彈翻床發展協會<small>推廣彈翻床運動 · TRAMPOLINE DEVELOPMENT</small></span></a>
   <nav class="header-navigation" aria-label="主要導覽"><a class="header-nav-button" href="index.html#about">關於協會</a><a class="header-nav-button" href="index.html#stories">故事與選手</a><a class="header-nav-button" href="index.html#training">訓練體系</a><a class="header-nav-button" href="index.html#news">最新消息</a><a class="header-nav-button" href="index.html#join">加入協會</a></nav>
   <div class="header-actions"><a class="header-button header-outline" href="store.html">官方商店</a><a class="header-button header-gold" href="support.html">支持協會 ↗</a></div>
   <button type="button" class="header-menu" @click.stop="mobileMenu = !mobileMenu" :aria-expanded="mobileMenu" aria-controls="header-mobile" :aria-label="mobileMenu ? '關閉選單' : '開啟選單'" :class="{ 'is-open': mobileMenu }"><span class="header-menu-icon" aria-hidden="true"><span></span><span></span><span></span></span></button>
@@ -61,7 +61,7 @@
     <div class="site-footer-inner">
         <div class="site-footer-grid">
             <div class="site-footer-brand">
-                <a href="index.html" class="site-footer-logo"><img src="assets/logo.svg" alt="CTTDA" width="52" height="52"><span><strong>中華台北彈翻床發展協會</strong><small>Chinese Taipei Trampoline<br>Development Association</small></span></a>
+                <a href="index.html" class="site-footer-logo"><img src="assets/cttda-logo.svg" alt="CTTDA" width="52" height="52"><span><strong>中華台北彈翻床發展協會</strong><small>Chinese Taipei Trampoline<br>Development Association</small></span></a>
                 <p>從每一次起跳，累積走向世界的力量。<br>一起支持彈翻床運動推廣、選手培育與團隊成長。</p>
             </div>
             <nav aria-label="頁尾網站導覽" class="site-footer-nav">

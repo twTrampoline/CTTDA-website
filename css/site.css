@@ -197,3 +197,8 @@ html{scroll-padding-top:100px} [x-cloak]{display:none!important} :focus-visible{
 @media(max-width:600px){.site-footer{padding:40px 20px 24px}.site-footer-grid{grid-template-columns:1fr;gap:32px;padding-bottom:32px}.site-footer-brand{grid-column:auto}.site-footer-logo strong{font-size:16px}.site-footer-bottom{align-items:flex-start;flex-direction:column;gap:10px}.site-footer-contact p{margin-top:0}}
 .news-photo{object-position:center 58%}
 .focus-section .focus-image[src$="althete.PNG"]{object-fit:contain;background:#171717}
+
+/* Official CTTDA vertical logo: retain full artwork and original colours. */
+.header-logo{width:60px;height:60px;object-fit:contain;flex-shrink:0;background:#020202;border-radius:8px;padding:0}
+.site-footer-logo img{width:64px;height:64px;background:#020202;border-radius:8px;padding:0}
+@media(max-width:600px){.header-logo{width:46px;height:46px}}
