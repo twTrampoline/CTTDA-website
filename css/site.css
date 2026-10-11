@@ -199,6 +199,6 @@ html{scroll-padding-top:100px} [x-cloak]{display:none!important} :focus-visible{
 .focus-section .focus-image[src$="althete.PNG"]{object-fit:contain;background:#171717}
 
 /* Official CTTDA vertical logo: retain full artwork and original colours. */
-.header-logo{width:60px;height:60px;object-fit:contain;flex-shrink:0;background:#020202;border-radius:8px;padding:0}
-.site-footer-logo img{width:64px;height:64px;background:#020202;border-radius:8px;padding:0}
+.header-logo{width:60px;height:60px;object-fit:contain;flex-shrink:0;background:transparent;border-radius:0;padding:0}
+.site-footer-logo img{width:64px;height:64px;background:transparent;border-radius:0;padding:0}
 @media(max-width:600px){.header-logo{width:46px;height:46px}}
