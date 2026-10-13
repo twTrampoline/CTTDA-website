@@ -14,7 +14,7 @@
     <script src="js/theme.js"></script>
     <script src="js/image-fallback.js"></script>
 
-<link rel="stylesheet" href="css/site.css">
+<link rel="stylesheet" href="css/site.css?v=20261013-pants">
 <link rel="icon" type="image/png" href="assets/favicon-black.png">
 <meta property="og:image" content="https://twtrampoline.github.io/CTTDA-website/assets/cttda-share-transparent.png">
 <meta property="og:image:alt" content="CTTDA 協會標誌">
@@ -72,7 +72,7 @@
 
         <div class="grid lg:grid-cols-[1.5fr_.8fr] gap-10 items-start">
           <div>
-            <div class="flex items-end justify-between mb-5"><div><p class="text-gold-400 text-xs tracking-widest font-bold">01 / PRODUCTS</p><h2 class="text-2xl font-bold mt-2">選擇商品</h2></div><span class="text-sm text-gray-400" id="productCount">10 款商品</span></div>
+            <div class="flex items-end justify-between mb-5"><div><p class="text-gold-400 text-xs tracking-widest font-bold">01 / PRODUCTS</p><h2 class="text-2xl font-bold mt-2">選擇商品</h2></div><span class="text-sm text-gray-400" id="productCount">11 款商品</span></div>
             <div id="cttdaProductGrid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
           </div>
 
@@ -89,7 +89,8 @@
               <div><label class="block text-sm text-gray-300 mb-1">姓名 *</label><input name="name" required autocomplete="name" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="收件人姓名"></div>
               <div><label class="block text-sm text-gray-300 mb-1">電話 *</label><input name="phone" required autocomplete="tel" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="聯絡電話"></div>
               <div><label class="block text-sm text-gray-300 mb-1">Email *</label><input name="email" type="email" required autocomplete="email" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="電子郵件"></div>
-              <div><label for="cttdaShippingAddress" class="block text-sm text-gray-300 mb-1">收件地址 *</label><textarea id="cttdaShippingAddress" name="address" required autocomplete="street-address" maxlength="500" rows="3" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="請填寫郵遞區號、縣市、鄉鎮市區、路名、門牌及樓層"></textarea><p class="text-xs text-gray-500 mt-2">請提供完整可收件地址，供協會安排商品寄送。</p></div>
+              <fieldset class="shipping-options"><legend>收貨方式 *</legend><label><input type="radio" name="deliveryMethod" value="address" checked> 自填地址寄送</label><label><input type="radio" name="deliveryMethod" value="base"> 基地收貨</label><p id="cttdaBaseHint" class="hidden">商品送至協會基地，具體領取地點及時間由協會確認。</p></fieldset>
+              <div id="cttdaAddressFields"><label for="cttdaShippingAddress" class="block text-sm text-gray-300 mb-1">收件地址 *</label><textarea id="cttdaShippingAddress" name="address" required autocomplete="street-address" maxlength="500" rows="3" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="請填寫郵遞區號、縣市、鄉鎮市區、路名、門牌及樓層"></textarea><p class="text-xs text-gray-500 mt-2">請提供完整可收件地址，供協會安排商品寄送。</p></div>
               <div id="cttdaMeasurements" class="hidden border border-gold-500/30 p-4 space-y-3"><p class="text-gold-300 font-bold text-sm">體操衣尺寸資料（選購體操衣時必填）</p><div class="grid grid-cols-2 gap-3"><div><label class="block text-xs text-gray-400 mb-1">身高 cm *</label><input name="height" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="身高"></div><div><label class="block text-xs text-gray-400 mb-1">體重 kg *</label><input name="weight" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="體重"></div><div><label class="block text-xs text-gray-400 mb-1">胸圍 cm *</label><input name="bust" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="胸圍"></div><div><label class="block text-xs text-gray-400 mb-1">腰圍 cm *</label><input name="waist" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="腰圍"></div><div><label class="block text-xs text-gray-400 mb-1">臀圍 cm *</label><input name="hip" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="臀圍"></div></div></div>
               <div><label class="block text-sm text-gray-300 mb-1">轉帳後五碼（如適用）</label><input name="transferLast5" maxlength="5" inputmode="numeric" pattern="[0-9]{5}" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="可稍後補填"></div>
               <div><label class="block text-sm text-gray-300 mb-1">備註／收件需求</label><textarea name="notes" rows="3" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="如有特殊需求請填寫"></textarea></div>
@@ -99,6 +100,7 @@
           </aside>
         </div>
 
+<section id="pants-size-guide" class="size-guide"><p class="size-guide-eyebrow">SIZE GUIDE / 長褲</p><h2>找到適合你的尺寸</h2><p>成人與童裝採用不同尺碼。下單前請對照量度數據。</p><h3>成人尺碼</h3><div class="size-table-scroll" tabindex="0" role="region" aria-label="成人尺碼"><table><caption>成人尺碼（長度單位：cm）</caption><thead><tr><th scope="col">尺寸</th><th scope="col">腰圍</th><th scope="col">褲長</th><th scope="col">臀圍</th></tr></thead><tbody><tr><th scope="row">S</th><td>92</td><td>106</td><td>96</td></tr><tr><th scope="row">M</th><td>96</td><td>108</td><td>100</td></tr><tr><th scope="row">L</th><td>100</td><td>110</td><td>104</td></tr><tr><th scope="row">XL</th><td>104</td><td>112</td><td>108</td></tr><tr><th scope="row">XXL</th><td>108</td><td>114</td><td>112</td></tr><tr><th scope="row">XXXL</th><td>112</td><td>116</td><td>116</td></tr></tbody></table></div><h3>童裝尺碼</h3><div class="size-table-scroll" tabindex="0" role="region" aria-label="童裝尺碼"><table><caption>童裝尺碼（長度單位：cm）</caption><thead><tr><th scope="col">尺寸</th><th scope="col">褲長</th><th scope="col">臀圍</th><th scope="col">腰圍</th><th scope="col">參考身高 cm</th><th scope="col">參考體重 kg</th></tr></thead><tbody><tr><th scope="row">100</th><td>55</td><td>68</td><td>42</td><td>90–100</td><td>13–15</td></tr><tr><th scope="row">110</th><td>60</td><td>72</td><td>45</td><td>100–110</td><td>15–20</td></tr><tr><th scope="row">120</th><td>67</td><td>76</td><td>48</td><td>110–120</td><td>20–23</td></tr><tr><th scope="row">130</th><td>72</td><td>80</td><td>52</td><td>120–130</td><td>23–25</td></tr><tr><th scope="row">140</th><td>78</td><td>84</td><td>54</td><td>130–140</td><td>25–30</td></tr><tr><th scope="row">150</th><td>84</td><td>88</td><td>58</td><td>140–150</td><td>30–40</td></tr><tr><th scope="row">160</th><td>91</td><td>92</td><td>62</td><td>150–160</td><td>40–50</td></tr></tbody></table></div><p class="size-guide-note">按提供的原廠尺碼表整理，以 cm 數據為準。原表未說明腰圍量度方式及彈性範圍；如對尺寸有疑問，請先向協會確認。身高及體重僅供參考。</p></section>
         <section id="cttdaReviewPanel" class="hidden mt-12 border-2 border-gold-400 bg-[#141414] p-5 md:p-8">
           <p class="text-gold-400 text-xs tracking-widest font-bold">04 / REVIEW BEFORE SUBMIT</p><h2 class="text-3xl font-black mt-2">請確認訂單</h2><p class="text-gray-400 mt-2">核對商品、尺寸、數量及聯絡資料；如需修改，返回購物車即可。</p>
           <div id="cttdaReviewItems" class="my-6"></div><div class="border-t border-white/15 pt-5 flex justify-between text-lg"><span>訂單小計</span><strong id="cttdaReviewTotal" class="text-gold-300"></strong></div><div id="cttdaReviewCustomer" class="mt-5 text-sm text-gray-300 leading-7"></div>
@@ -107,8 +109,8 @@
       </div>
     </section>
 
-    <script src="js/config.js"></script>
-<script src="js/store.js?v=20261012-address"></script>
+    <script src="js/config.js?v=20261013-pants"></script>
+<script src="js/store.js?v=20261013-pants"></script>
     <footer class="site-footer">
     <div class="site-footer-inner">
         <div class="site-footer-grid">
