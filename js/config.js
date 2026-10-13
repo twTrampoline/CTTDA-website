@@ -8,7 +8,7 @@ window.CTTDA_CONFIG = {
         {id:'suit',name:'體操衣',cat:'TEAM WEAR',price:1800,sizes:['XS','S','M','L','XL','2XL'],img:'assets/leotard.jpg',fallback:'assets/product-leotard.svg',desc:'訓練與比賽服裝；下單需填寫身體尺寸。',measurements:true},
         {id:'jacket',name:'外套',cat:'TEAM WEAR',price:1280,sizes:['120','130','140','150','XS','S','M','L','XL','XXL'],img:'assets/jacket.PNG',fallback:'assets/product-jacket.svg',desc:'協會團隊外套。'},
         {id:'shorts',name:'短褲',cat:'TEAM WEAR',price:580,sizes:['5XS','4XS','3XS','2XS','XS','S','M','L'],img:'assets/shorts.PNG',fallback:'assets/product-shorts.svg',desc:'日常訓練短褲。'},
-        {id:'pants',name:'長褲',cat:'TEAM WEAR',price:null,sizes:['100','110','120','130','140','150','160','S','M','L','XL','XXL','XXXL'],img:'assets/product-pants.png',desc:'黑色束口長褲，搭配金色 CTTDA 圖案。成人及童裝尺寸可參考尺碼表。',sizeChart:true},
+        {id:'pants',name:'長褲',cat:'TEAM WEAR',price:480,sizes:['100','110','120','130','140','150','160','S','M','L','XL','XXL','XXXL'],img:'assets/product-pants.png',desc:'黑色束口長褲，搭配金色 CTTDA 圖案。成人及童裝尺寸可參考尺碼表。',sizeChart:true},
         {id:'slippers',name:'拖鞋',cat:'TEAM WEAR',price:350,sizes:['32-33','34-35','36-37','38-39','40-41','42-43','44-45','46-47'],img:'assets/slippers-photo.png',fallback:'assets/product-slippers.svg',desc:'黑色協會拖鞋。'},
         {id:'socks',name:'運動襪',cat:'TRAINING ACCESSORIES',price:380,sizes:['S','M','L'],img:'assets/shocks.PNG',fallback:'assets/socks-real.jpg|assets/product-socks.svg',desc:'白色襪款搭配金色協會標誌。'},
         {id:'omamori',name:'飛躍守御守',cat:'OFFICIAL GOODS',price:280,sizes:[],img:'assets/omamori.jpg',fallback:'assets/product-omamori.svg',desc:'寓意平安、突破與勇氣。'},
