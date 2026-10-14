@@ -13,7 +13,7 @@ window.CTTDA_CONFIG = {
    JPY: {rate:4.9310,quotedAt:'2026-10-13T23:29:19Z'}
  },
  PRODUCTS: [
-        {id:'suit',name:'體操衣',cat:'TEAM WEAR',price:1800,sizes:['XS','S','M','L','XL','2XL'],img:'assets/leotard.jpg',fallback:'assets/product-leotard.svg',desc:'訓練與比賽服裝；下單需填寫身體尺寸。',measurements:true},
+        {id:'suit',name:'體操衣',cat:'TEAM WEAR',price:null,priceLabel:'***',sizes:['XS','S','M','L','XL','2XL'],img:'assets/leotard.jpg',fallback:'assets/product-leotard.svg',desc:'訓練與比賽服裝；下單需填寫身體尺寸。',measurements:true},
         {id:'jacket',name:'外套',cat:'TEAM WEAR',price:1280,sizes:['120','130','140','150','XS','S','M','L','XL','XXL'],img:'assets/jacket.PNG',fallback:'assets/product-jacket.svg',desc:'協會團隊外套。'},
         {id:'shorts',name:'短褲',cat:'TEAM WEAR',price:580,sizes:['5XS','4XS','3XS','2XS','XS','S','M','L'],img:'assets/shorts.PNG',fallback:'assets/product-shorts.svg',desc:'日常訓練短褲。'},
         {id:'pants',name:'長褲',cat:'TEAM WEAR',price:880,sizes:['100','110','120','130','140','150','160','S','M','L','XL','XXL','XXXL'],img:'assets/product-pants.png',desc:'黑色束口長褲，搭配金色 CTTDA 圖案。成人及童裝尺寸可參考尺碼表。',sizeChart:true},
