@@ -73,6 +73,13 @@
         <div class="grid lg:grid-cols-[1.5fr_.8fr] gap-10 items-start">
           <div>
             <div class="flex items-end justify-between mb-5"><div><p class="text-gold-400 text-xs tracking-widest font-bold">01 / PRODUCTS</p><h2 class="text-2xl font-bold mt-2">選擇商品</h2></div><span class="text-sm text-gray-400" id="productCount">11 款商品</span></div>
+            <div class="border border-white/10 bg-[#141414] p-4 mb-5">
+              <div class="flex flex-wrap items-end gap-4">
+                <div><label for="cttdaCurrency" class="block text-sm text-gray-300 mb-2">顯示幣別</label><select id="cttdaCurrency" class="bg-black border border-white/20 text-white px-3 py-2.5"><option value="TWD">TWD 新台幣</option><option value="HKD">HKD 港幣</option><option value="USD">USD 美元</option><option value="CNY">CNY 人民幣</option><option value="JPY">JPY 日圓</option></select></div>
+              </div>
+              <p id="cttdaCurrencyHint" class="text-xs text-gray-400 mt-3" role="status">商品以新台幣定價；其他幣別使用已儲存的 Google Finance 報價換算，僅供參考。訂單及付款金額以新台幣為準。</p>
+              <a id="cttdaCurrencySource" href="https://www.google.com/finance/" target="_blank" rel="noopener noreferrer" class="hidden inline-block text-xs text-gold-300 underline mt-2">查看 Google Finance 最新匯率 ↗</a>
+            </div>
             <div id="cttdaProductGrid" class="grid sm:grid-cols-2 xl:grid-cols-3 gap-5"></div>
           </div>
 
@@ -81,7 +88,7 @@
               <p class="text-gold-400 text-xs tracking-widest font-bold">02 / YOUR CART</p><div class="flex items-center justify-between mt-2 mb-5"><h2 class="text-2xl font-bold">購物車</h2><span id="cttdaCartCount" class="text-sm text-gold-300">0 件</span></div>
               <div id="cttdaCartList" class="space-y-4"><p class="text-gray-500 py-5">尚未加入商品</p></div>
               <div class="border-t border-white/10 mt-5 pt-5 flex justify-between items-center"><span class="text-gray-300">訂單小計</span><strong id="cttdaCartTotal" class="text-gold-300 text-xl">NT$ 0</strong></div>
-              <p class="text-xs text-gray-500 mt-3">暫定售價，運費及最終付款方式由協會確認。</p>
+              <p class="text-xs text-gray-500 mt-3">商品以新台幣計價，運費及最終付款方式由協會確認。</p>
             </div>
 
             <form id="cttdaOrderForm" class="bg-[#141414] border border-white/10 p-5 md:p-6 space-y-4">
@@ -109,9 +116,9 @@
       </div>
     </section>
 
-    <script src="js/config.js?v=20261013-inline-sizes"></script>
+    <script src="js/config.js?v=20261014-google-rates"></script>
 <script src="js/order-document.js?v=20261013"></script>
-<script src="js/store.js?v=20261013-inline-sizes"></script>
+<script src="js/store.js?v=20261014-google-rates"></script>
     <footer class="site-footer">
     <div class="site-footer-inner">
         <div class="site-footer-grid">
