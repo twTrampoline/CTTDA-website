@@ -98,7 +98,7 @@
               <div><label class="block text-sm text-gray-300 mb-1">Email *</label><input name="email" type="email" required autocomplete="email" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="電子郵件"></div>
               <fieldset class="shipping-options"><legend>收貨方式 *</legend><label><input type="radio" name="deliveryMethod" value="address" checked> 自填地址寄送</label><label><input type="radio" name="deliveryMethod" value="base"> 基地收貨</label><p id="cttdaBaseHint" class="hidden">商品送至協會基地，具體領取地點及時間由協會確認。</p></fieldset>
               <div id="cttdaAddressFields"><label for="cttdaShippingAddress" class="block text-sm text-gray-300 mb-1">收件地址 *</label><textarea id="cttdaShippingAddress" name="address" required autocomplete="street-address" maxlength="500" rows="3" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="請填寫郵遞區號、縣市、鄉鎮市區、路名、門牌及樓層"></textarea><p class="text-xs text-gray-500 mt-2">請提供完整可收件地址，供協會安排商品寄送。</p></div>
-              <div id="cttdaMeasurements" class="hidden border border-gold-500/30 p-4 space-y-3"><p class="text-gold-300 font-bold text-sm">體操衣尺寸資料（選購體操衣時必填）</p><div class="grid grid-cols-2 gap-3"><div><label class="block text-xs text-gray-400 mb-1">身高 cm *</label><input name="height" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="身高"></div><div><label class="block text-xs text-gray-400 mb-1">體重 kg *</label><input name="weight" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="體重"></div><div><label class="block text-xs text-gray-400 mb-1">胸圍 cm *</label><input name="bust" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="胸圍"></div><div><label class="block text-xs text-gray-400 mb-1">腰圍 cm *</label><input name="waist" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="腰圍"></div><div><label class="block text-xs text-gray-400 mb-1">臀圍 cm *</label><input name="hip" type="number" min="0" step="0.1" class="cttda-measure w-full bg-black border border-white/20 px-3 py-2 text-white" placeholder="臀圍"></div></div></div>
+              <div id="cttdaMeasurements" class="hidden border border-gold-500/30 p-4 space-y-4"></div>
               <div><label class="block text-sm text-gray-300 mb-1">轉帳後五碼（如適用）</label><input name="transferLast5" maxlength="5" inputmode="numeric" pattern="[0-9]{5}" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="可稍後補填"></div>
               <div><label class="block text-sm text-gray-300 mb-1">備註／收件需求</label><textarea name="notes" rows="3" class="w-full bg-black border border-white/20 px-3 py-3 text-white focus:border-gold-400 outline-none" placeholder="如有特殊需求請填寫"></textarea></div>
               <button type="button" id="cttdaReviewBtn" class="w-full bg-gold-400 hover:bg-gold-300 text-black font-bold px-5 py-4 transition">確認商品與訂單 →</button>
@@ -116,9 +116,9 @@
       </div>
     </section>
 
-    <script src="js/config.js?v=20261014-pending-order"></script>
-<script src="js/order-document.js?v=20261014-pending-order"></script>
-<script src="js/store.js?v=20261014-pending-order"></script>
+    <script src="js/config.js?v=20261017-custom-fit"></script>
+<script src="js/order-document.js?v=20261017-custom-fit"></script>
+<script src="js/store.js?v=20261017-custom-fit"></script>
     <footer class="site-footer">
     <div class="site-footer-inner">
         <div class="site-footer-grid">
